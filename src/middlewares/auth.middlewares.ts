@@ -21,7 +21,7 @@ declare global {
 }
 
 export const protect = async (req: Request, res: Response, next: NextFunction) => {
-  let token;
+  let token:string;
 
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     try {

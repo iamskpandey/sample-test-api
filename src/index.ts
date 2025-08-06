@@ -3,6 +3,7 @@ import type { Application, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db';
 import sampleRoutes from './routes/sample.routes';
+import authRoutes from './routes/auth.routes';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.get('/api/health', (req: Request, res: Response) => {
   res.status(200).json({ status: 'UP', timestamp: new Date().toISOString() });
 });
 
+app.use('/api/auth', authRoutes);
 app.use('/api/samples', sampleRoutes);
 
 const PORT = process.env.PORT || 5001;
