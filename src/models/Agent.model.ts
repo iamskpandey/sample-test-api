@@ -3,7 +3,6 @@ import bcrypt from 'bcryptjs';
 
 export interface IAgent extends Document {
   name: string;
-  employeeId: string;
   email: string;
   password?: string; 
   phone: string;
@@ -12,7 +11,6 @@ export interface IAgent extends Document {
 
 const AgentSchema = new Schema<IAgent>({
   name: { type: String, required: true },
-  employeeId: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true, lowercase: true },
   password: { type: String, required: true, select: false }, 
   phone: { type: String, required: true },
